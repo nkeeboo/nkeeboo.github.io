@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coudé Forum</title>
+    <!-- icon logo coude -->
+    <link rel="icon" type="image/x-icon" href="/assets/logo.png">
+    <link rel="stylesheet" href="./mainforum.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <style>
+        @import url(../header/header.css);
+        @import url(../footer/footer.css);
+        @import url(./text-editor.css);
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="../header/header-res.js"></script>
+    <script src="./text-editor.js"></script>
+    <script>
+        var app = angular.module("angularApp", [])
+        app.controller("TopicController", function($scope, $http) {
+            $http({
+                method: "GET",
+                url: "/assets/data/forum/forum.json"
+            }).then(function mySuccess(respone) {
+                $scope.forum = respone.data
+            }, function myError(respone) {
+                $scope.dataError = respone.statusText;
+            });
+            $scope.selectTopic = function(val) {
+                $scope.topicDetails = val;
+            }
+            $scope.reverse = false;
+            $scope.orderByMe = function(val) {
+                    $scope.reverse = ($scope.val === val) ? !$scope.reverse : true;
+                    $scope.val = val;
+                }
+                // function create pagination
+                // $scope.currentPage = 0;
+                // $scope.pageSize = 15;
+                // $scope.numberOfPages = function() {
+                //     return Math.ceil($scope.forum.length / $scope.pageSize);
+                // }
+
+            // //We already have a limitTo filter built-in to angular,
+            // //let's make a startFrom filter
+            // app.filter('startFrom', function() {
+            //     return function(input, start) {
+            //         start = +start; //parse to int
+            //         return input.slice(start);
+            //     }
+            // })
+        })
+    </script>
+</head>
+<header w3-include-html='../header/header.html'></header>
+
+<body ng-app="angularApp" ng-controller="TopicController">
+
+    <div class="content">
+        <div class="forum__intro">
+            <div class="coude__intro">
+                <h2>Coudé Forum</h2>
+                <p>Welcome to the friendliest place for anyone learning code!</p>
+            </div>
+            <div class="topic__search-box">
+                <input type="text" class="topic__search-input" id="" placeholder="Search the topic here">
+                <i class="bi bi-search topic__search-icon"></i>
+            </div>
+        </div>
+        <div class="navigation">
+            <div class="navbar">
+                <button type="button" class="nav__btn" ng-click="orderByMe('views')">Popular</button>
+                <button type="button" class="nav__btn" ng-click="orderByMe('date')">Lastest</button>
+                <button type="button" class="nav__btn">Marked</button>
+                <button type="button" class="nav__btn">My questions</button>
+            </div>
+            <div class=" navbutton flex--row">
+                <div class="dropdown">
+                    <select ng-model="selectedTag">
+                        <option value="">TAGS</option>
+                        <option value="c#">C#</option>                       
+                        <option value="c++">C++</option>
+                        <option value="python">Python</option>
+                        <option value="java">Java</option>
+                        <option value="sql">SQL</option>
+                        <option value="kotlin">Kotlin</option>
+                        <option value="html">HTML</option>
+                        <option value="css">CSS</option>
+                        <option value="javascript">Javascript</option>
+                    </select>
+                </div>
+                <button type="button" class="createTopic__btn" id="myCreateTopicBtn">New Topic 
+                        <i class="bi bi-plus"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Popup -->
+        <div id="myPopup" class="popup-div">
+            <!-- Popup content -->
+            <div class="popup-content">
+                <div class="popup-header">
+                    <i class="bi bi-x-circle close"></i>
+                    <div class="popup-header--title">Create a new topic</div>
+                </div>
+                <div class="popup-body">
+                    <input type="text" name="" id="title" placeholder="Type your title here..." class="input-title">
+                    <div class="input-content" w3-include-html='./text-editor.html'>
+                    </div>
+                </div>
+                <div class="popup-footer">
+                    <button class="cancel__btn">Cancel</button>
+                    <div class="create-topic">
+                        <button type="button" class="createTopic__btn" id="myCreateTopicBtn">New Topic 
+                            <i class="bi bi-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="topic-title">
+            <div class="topic__name-smallsize">Topic</div>
+            <div class="topic__replies">Replies</div>
+            <div class="topic__views">Views</div>
+            <div class="topic__times">Time</div>
+        </div>
+        <div class="list-topic" ng-repeat="topic in forum | filter: {tag: selectedTag} | orderBy: val:reverse">
+            <a href="topic.html?topicId={{topic.id}}">
+                <div class="topic-child">
+                    <div class="topic__col">
+                        <div class="topic__name">{{topic.title}}</div>
+                        <div class="topic__tags">{{topic.tag}}</div>
+                    </div>
+                    <div class="topic__replies">{{topic.replies}}</div>
+                    <div class="topic__views">{{topic.views}}</div>
+                    <div class="topic__times">{{topic.date}}</div>
+                    <!-- <div class="topic__times">{{calculateDiff(topic)}}</div> -->
+                </div>
+            </a>
+        </div>
+
+    </div>
+    <!-- Hiển thị tính năng Panigation -->
+    <!-- <button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+        Previous
+    </button> {{currentPage+1}}/{{numberOfPages()}}
+    <button ng-disabled="currentPage >= data.length/pageSize - 1" ng-click="currentPage=currentPage+1">
+        Next
+    </button> -->
+    <script src="./popup.js"></script>
+
+    <script>
+        w3.includeHTML();
+    </script>
+
+</body>
+<footer w3-include-html='../footer/footer.html'></footer>
+
+</html>

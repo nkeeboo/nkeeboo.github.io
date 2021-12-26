@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/assets/logo.png">
+    <title>Log in</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="53889667080-igmmuvo2pjqma1tvf75kj37c64b3sfkf.apps.googleusercontent.com">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header"></div>
+        <div class="body">
+            <div class="main-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col"></div>
+                        <div class="col">
+                            <div class="login-main">
+                                <div class="logo">
+                                    <img src="/assets/logo.png" alt="Error">
+                                </div>
+                                <div class="login-info">
+                                    <div class="form-group">
+                                        <div class="form-row">
+                                            <div class="row">
+                                                <label>Account name</label>
+                                                <input type="text" class="form-control" autofocus placeholder="Account name" required name="">
+                                            </div>
+                                            <div class="row">
+                                                <label>Password</label>
+                                                <input type="password" class="form-control" placeholder="Password" required name="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="line">
+
+                                <div class="login-content">
+                                    <p>Or sign in with</p>
+                                </div>
+
+                                <div class="d-flex justify-content-around login-method ">
+
+
+                                    <button class="btn btn-link g-signin2 " data-onsuccess="onSignIn">
+                        <i class=" bi bi-google "></i>
+                    </button>
+
+
+                                    </button>
+                                </div>
+                                <div class="d-flex justify-content-around login-button ">
+                                    <div class="btn-forgot">
+                                        <button class="btn btn-light btn-next" id="btnforgot" name="forgot" data-toggle="modal" data-target="#myModal1">Forgot password?</button>
+                                    </div>
+                                    <div class="btn-login">
+                                        <button class="btn btn-success btn-login" onclick="window.location.href='../Homepage/homepage.html'" id="btnlogin" name="login">Log in</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>Reset password</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+                        </div>
+                        <div class="modal-body">
+                            <p>Email / Account Name</p> <br>
+                            <input id="btnReset1" type="text " class="form-control" placeholder="Account name " required name=" ">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default btn-next">Next</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>Choose OTP code</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <p>Choose to receive OTP code via:</p>
+                            <div class="content-main">
+                                <div class="choose-element">
+                                    <input type="radio" name="input-element" id="phone">
+                                    <label for="phone">Phone number</label>
+                                </div>
+                                <div class="choose-element">
+                                    <input type="radio" name="input-element" id="email">
+                                    <label for="email">Email</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default btn-next">Next</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <h3>Confirm an OTP code</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <div class="enter-otp">
+                                <p id="popup-content ">Enter an OTP code</p>
+                                <input id="enterotp " type="text " class="form-control " placeholder="OTP " required name=" ">
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default btn-prev">Resend code</button>
+                            <button type="button" class="btn btn-default btn-next">Next</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <h3>Reset a new password</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <div class="enter-otp">
+                                <p id="popup-content ">Enter a new password</p>
+                                <input id="enterotp " type="text " class="form-control " placeholder="Enter a new password " required name=" ">
+                                <p id="popup-content ">Enter a new password again</p>
+                                <input id="enterotp " type="text " class="form-control " placeholder="Re enter a new password " required name=" ">
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default btn-next" onclick="on()">Confirm</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Overlay note login again -->
+        <div id="overlay" onclick="off()">
+            <div id="text">Log in again</div>
+        </div>
+
+    </div>
+    <script src="./login.js"></script>
+    <script>
+        function on() {
+            document.getElementById("overlay").style.display = "block";
+        }
+
+        function off() {
+            document.getElementById("overlay").style.display = "none";
+        }
+    </script>
+
+</body>
+
+</html>

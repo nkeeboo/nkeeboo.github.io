@@ -1,0 +1,52 @@
+@font-face {
+    font-family: RobotoRegular;
+    src: url(/assets/fonts/roboto/Roboto-Regular.ttf);
+}
+
+@font-face {
+    font-family: RobotoMedium;
+    src: url(/assets/fonts/roboto/Roboto-Medium.ttf);
+}
+
+@font-face {
+    font-family: RobotoLight;
+    src: url(/assets/fonts/roboto/Roboto-Light.ttf);
+}
+
+@font-face {
+    font-family: MontserratExtraBold;
+    src: url(/assets/fonts/montserrat/Montserrat-ExtraBold.ttf);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.header {
+    height: 50px;
+}
+
+.signup-button {
+    margin-bottom: 20px;
+}
+
+.line {
+    width: 420px;
+    background-color: grey;
+    border: 0.5px solid grey;
+    margin: auto;
+}
+
+.content-heading {
+    font-family: RobotoRegular;
+    font-size: 20px;
+}
+
+label {
+    font-family: RobotoRegular;
+}
+
+#signup-btn {
+    padding: 15px 20px;
+    font-family: MontserratExtraBold;
+}

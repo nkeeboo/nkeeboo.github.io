@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enroll</title>
+    <!-- icon logo coude -->
+    <link rel="icon" type="image/x-icon" href="/assets/logo.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Enroll.css">
+    <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../header/header-login.css">
+    <link rel="stylesheet" href="../../footer/footer.css">
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <script src="../header/header-res.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        let urlparams = new URLSearchParams(location.search);
+        var name = urlparams.get('enrollName');
+    </script>
+    <script>
+        let app = angular.module("angularApp", []);
+        app.controller("EnrollController", function($scope, $http) {
+            $http({
+                method: "GET",
+                url: "/assets/data/courses/courses.json"
+            }).then(
+                function success(response) {
+                    $scope.selectedEnroll = null;
+                    for (let i = 0; i < response.data.length; i++) {
+                        if (response.data[i].title == name) {
+                            $scope.selectedEnroll = response.data[i];
+                            break;
+                        }
+                    }
+                },
+                function error(response) {
+                    $scope.error = response.statusText;
+                })
+
+            $scope.selectedInfor = function(val) {
+                $scope.courseInfor = val;
+            }
+        })
+    </script>
+</head>
+<header w3-include-html='../../header/header-login.html'></header>
+
+<body ng-app="angularApp" ng-controller="EnrollController">
+    <div class="wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- space left -->
+                <div class="col-1" style="height: 100%;"></div>
+                <!-- content -->
+                <div class="col-10" style=" height: 100%;">
+                    <!-- intro -->
+                    <div class="row intro" style="height: 100%;">
+                        <div class="col-12 col-lg-6" style="height: 100%;">
+                            <div class="intro--left">
+                                <p class="intro--header">
+                                    {{selectedEnroll.title}}
+                                </p>
+                                <div class="stars">
+                                    <div class="rate">
+                                        <input class="star star-5" id="star-5" type="radio" name="star" />
+                                        <label class="star star-5" for="star-5"></label>
+                                        <input class="star star-4" id="star-4" type="radio" name="star" />
+                                        <label class="star star-4" for="star-4"></label>
+                                        <input class="star star-3" id="star-3" type="radio" name="star" />
+                                        <label class="star star-3" for="star-3"></label>
+                                        <input class="star star-2" id="star-2" type="radio" name="star" />
+                                        <label class="star star-2" for="star-2"></label>
+                                        <input class="star star-1" id="star-1" type="radio" name="star" />
+                                        <label class="star star-1" for="star-1"></label>
+                                    </div>
+                                    <div class="txtrate">
+                                        <p>{{selectedEnroll.rate}} ratings </p>
+                                    </div>
+                                </div>
+                                <p class="txtintro">Instructor: {{selectedEnroll.instructor}}</p>
+                                <p class="txtintro">Offered by Coudé</p>
+                                <button class="btn btn-block" type="button">Enroll for Free <p class="txtbutton">Starts Nov 7</p></button>
+                                <br>
+                                <p class="txtintro">{{selectedEnroll.enroll_num}} already enrolled</p>
+                            </div>
+                        </div>
+                        <div class=" col-12 col-lg-6" style="height: 100%;">
+                            <div class="intro--right">
+                                <img src="/assets/images/avatar/{{selectedEnroll.user_avt}}" class="imgintro" alt="">
+                                <p class="txtintroright">
+                                    {{selectedEnroll.instruc_descript}}</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- infor -->
+                    <div class="row infor" style="height: 100%;">
+                        <div class="container-fluid">
+                            <div class="row" style="height: 30px;"></div>
+                            <div class="row justify-content-center" style="border: 1px solid black;">
+                                <a ng-click="selectedInfor(selectedEnroll.atc)" href="javascript:void(0)" class="infor--link">
+                                                About the course
+                                            </a>
+                                <a ng-click="selectedInfor(selectedEnroll.hiw)" href="javascript:void(0)" class="infor--link">
+                                                How it works
+                                            </a>
+                                <a ng-click="selectedInfor(selectedEnroll.language)" href="javascript:void(0)" class="infor--link">
+                                                Language
+                                            </a>
+                                <a ng-click="selectedInfor(selectedEnroll.fee)" href="javascript:void(0)" class="infor--link">
+                                            Tution Fee
+                                            </a>
+                                <a ng-click="selectedInfor(selectedEnroll.instruc_descript)" href="javascript:void(0)" class="infor--link">
+                                                Instructor
+                                            </a>
+                                <a ng-click="selectedInfor(selectedEnroll.degree)" href="javascript:void(0)" class="infor--link">
+                                                Degree/Certificate
+                                            </a>
+
+                            </div>
+                            <div class="row" style="border: 1px solid black;">
+                                <div class=" col-12 col-lg-8" style="height: 100%;" >
+                                    <div class="header_courseInfor">COUDÉ WILL HELP YOU WITH</div>
+                                    <br>
+                                    <div class="" ng-if="courseInfor">
+                                        {{courseInfor}}
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-4" style="height: 100%; border-left: 1px solid black;">
+                                    <div class="txtinforrg">
+                                        <i class="glyphicon glyphicon-time"></i> Shareable Certificate
+                                    </div>
+                                    <div class="txtinforrg">
+                                        <i class="glyphicon glyphicon-star"></i> Beginner Level
+                                    </div>
+                                    <div class="txtinforrg">
+                                        <i class="glyphicon glyphicon-list-alt"></i> Flexible Schedule
+                                    </div>
+                                    <div class="txtinforrg">
+                                        <i class="glyphicon glyphicon-book"></i> Approximately 4 months complete
+                                    </div>
+                                    <div class="txtinforrg">
+                                        <i class="glyphicon glyphicon-edit"></i> Shareable Certificate
+                                    </div>
+                                    <div class="txtinforrg">
+                                        <i class="glyphicon glyphicon-ok-circle"></i> English
+                                    </div>
+                                    <div class="txtinforrg">
+                                        <i class="glyphicon glyphicon-education"></i> 100% online course
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+        w3.includeHTML();
+    </script>
+</body>
+<footer w3-include-html='../../footer/footer.html'></footer>
+
+</html>

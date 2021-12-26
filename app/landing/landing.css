@@ -1,0 +1,389 @@
+@font-face {
+    font-family: Montserrat;
+    src: url(/assets/fonts/montserrat/Montserrat-Medium.ttf);
+}
+
+body {
+    position: relative;
+    top: 60px;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+header {
+    display: flex;
+    /* position: fixed;
+    top: 0px;
+    z-index: 1; */
+}
+
+.search-box {
+    display: none;
+}
+
+.search-box svg {
+    display: block;
+}
+
+#login {
+    right: 5%;
+    bottom: 30%;
+    /* vertical-align: -webkit-baseline-middle; */
+    position: absolute
+}
+
+.row--align-bottom {
+    align-items: flex-end;
+    justify-content: space-evenly;
+}
+
+svg {
+    color: white;
+    display: inline-block
+}
+
+.header__container {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(55, 73, 168, 0.2), rgba(55, 73, 168, 0.2)), rgba(0, 0, 0, 0.76);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: 'Gothic A1', sans-serif;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.frame {
+    color: white;
+    font-family: Montserrat;
+}
+
+.frame__clr--dark {
+    background: var(--header);
+}
+
+.frame__top {
+    padding-top: calc(50vh - 240px);
+}
+
+.frame__mid {
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+
+.frame__font--black {
+    color: black;
+}
+
+.sub-container {
+    justify-content: space-evenly;
+    align-self: center;
+}
+
+
+/* .sub-container>div{
+    margin-right: 40px;
+    margin-bottom: 20px;
+} */
+
+.rec-frame__shape {
+    border: 8px solid rgba(255, 255, 255, 0.86);
+    height: fit-content;
+    min-width: 300px;
+    width: 35%;
+    box-sizing: border-box;
+    filter: drop-shadow(0px 10px 4px rgba(0, 0, 0, 0.25));
+}
+
+.cta-container {
+    position: relative;
+    width: 280px;
+}
+
+.slogan {
+    position: absolute;
+}
+
+.slogan p,
+h2 {
+    margin: 0;
+    padding: 0;
+    width: fit-content;
+}
+
+.slogan p {
+    position: relative;
+    top: 10px;
+    left: calc(40% + 5em);
+    display: inline-block
+}
+
+.slogan span {
+    letter-spacing: 2px;
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.btn-create-account {
+    background-color: #2EA44F;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 10px 20px;
+    vertical-align: middle;
+    position: relative;
+    top: 150px;
+    /* right: auto;
+    left: auto; */
+    /* margin: 0 auto; */
+}
+
+.logo-container {
+    justify-content: center;
+    margin-top: 80px;
+}
+
+.logo-container>img:nth-child(n) {
+    width: 60px;
+    height: 60px;
+    margin-left: 35px;
+}
+
+.logo-container>img:first-child {
+    margin-left: 0;
+}
+
+.course-container {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    /* justify-content: center; */
+    width: 100%;
+    width: max-content;
+}
+
+.course__right-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.course__right-col .course-container__item {
+    height: max-content;
+}
+
+.course-container__item {
+    background-color: white;
+    color: black;
+    border: 2.5px solid black;
+    margin: 10px 5px;
+    padding: 5px 5px 10px 0px;
+    flex: 1;
+    min-width: 250px;
+}
+
+
+/* .course-container>div{
+    width: 100%;
+} */
+
+.course-container__item>div:nth-child(2) {
+    /*Nội dung course*/
+    margin: auto 20px;
+    text-align: center;
+}
+
+.course-container img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 80%;
+    height: auto;
+}
+
+.course-container__item ul {
+    list-style-position: inside;
+}
+
+.button__create-account:hover,
+.course-container__item:hover,
+#login:hover,
+a:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.course__tag {
+    background-color: black;
+    color: white;
+    width: fit-content;
+    padding: 0 10px 0 5px;
+}
+
+.course__coude-tag {
+    text-align: right;
+    font-size: 11px;
+}
+
+.field-container {
+    justify-content: center;
+    font-size: 20px;
+    margin-top: 30px;
+    list-style-position: inside;
+    flex-wrap: wrap;
+}
+
+.field-container li {
+    font-size: 20px;
+    margin-left: 15px;
+}
+
+.field-container a {
+    font-family: 'Courier New', Courier, monospace;
+    text-decoration: none;
+}
+
+.link-catalog,
+.field-container a {
+    color: white;
+}
+
+.people img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+}
+
+.people *,
+.milestone__item * {
+    margin: 0;
+}
+
+.people h1 {
+    letter-spacing: 2px;
+}
+
+.people p {
+    font-size: 10px;
+    text-align: justify;
+}
+
+.title,
+.milestone__item p {
+    width: fit-content;
+}
+
+.title p {
+    font-size: 16px;
+}
+
+.people-container {
+    width: 400px;
+    align-items: center;
+}
+
+.people-container__item {
+    /* justify-content: space-between; */
+    width: fit-content;
+    margin: 20px 10px;
+    /* vertical-align: middle; */
+}
+
+.people-container__item h5 {
+    font-size: 14px;
+}
+
+.milestone-container {
+    /* width: min-content; */
+    min-width: 200px;
+    /* flex: 1; */
+}
+
+.milestone__content {
+    border-left: 1.8px solid lightslategray;
+    height: fit-content;
+}
+
+
+/* .title, .milestone__item p{
+    margin-right: 0px
+} */
+
+.milestone__item {
+    margin: 15px 10px;
+}
+
+.milestone__item p:first-child {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.milestone__item p:nth-child(2) {
+    font-size: 10px;
+}
+
+.code-frame {
+    text-align: center;
+}
+
+iframe {
+    width: 80%;
+    height: 80vh;
+    margin: 15px auto;
+}
+
+@media only screen and (max-width: 600px) {
+    .code-frame>iframe {
+        display: none;
+    }
+    .logo-container>img {
+        width: 10% !important;
+        height: 10% !important;
+    }
+}
+
+
+/* Medium devices (landscape tablets, 768px and up) */
+
+@media only screen and (max-width: 768px) {
+    .flex--row {
+        flex-wrap: wrap;
+    }
+    .flex--row.sub-container.course {
+        flex-wrap: wrap-reverse;
+    }
+    .rec-frame__shape {
+        width: 70%;
+    }
+    .slogan,
+    .btn-create-account {
+        position: unset;
+    }
+    .cta-container {
+        top: 20px;
+    }
+    .slogan p {
+        margin-bottom: 20px;
+        left: calc(5% + 5em);
+    }
+    .course-container {
+        justify-content: space-around;
+    }
+    .course-container__item {
+        margin-bottom: 10px;
+        width: 65vw;
+        min-width: fit-content;
+    }
+    .field-container {
+        justify-content: flex-start;
+        flex-direction: column;
+        margin-left: 5%;
+    }
+    .people-container {
+        width: 95%;
+    }
+    .flex--row.people-container__item {
+        flex-wrap: nowrap;
+    }
+    .row--align-bottom {
+        justify-content: flex-start;
+        margin-left: 2%
+    }
+}

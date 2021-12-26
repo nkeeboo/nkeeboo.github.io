@@ -1,0 +1,184 @@
+/* body {
+    position: relative;
+    top: 50px;
+} */
+
+
+/* Thuộc tính của thanh header */
+
+.header__container {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(55, 73, 168, 0.2), rgba(55, 73, 168, 0.2)), rgba(0, 0, 0, 0.76);
+    /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+    position: fixed;
+    top: 0px;
+    height: 55px;
+    width: 100%;
+    z-index: 99;
+    font-family: 'Gothic A1', sans-serif;
+    align-items: center;
+    justify-content: space-around;
+    overflow: hidden;
+    display: flex;
+}
+
+
+/* .header__container a{
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: auto 10px;
+    text-decoration: none;
+    font-size: 17px;
+} */
+
+
+/* Logo coude tren header */
+
+.header__container>img {
+    width: 138px;
+    margin: 0;
+    margin-left: 3%;
+}
+
+.header__container a {
+    color: white;
+    text-decoration: none;
+    margin: auto 15px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.header__container a:hover {
+    text-decoration: underline;
+    transition: 1s;
+    color: white;
+}
+
+.header__container .icon {
+    display: none;
+    font-size: 20px;
+}
+
+.icon>div {
+    width: 30px;
+    height: 4px;
+    background-color: white;
+    margin: 5px 0;
+    border-radius: 3px;
+}
+
+.search-box {
+    width: 30%;
+    min-width: 200px;
+    height: 30px;
+    background: #E5E5E5;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    margin-left: 2%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.search-box input {
+    width: 90%;
+    background-color: transparent;
+    height: 97%;
+    border: none;
+    padding-left: 10px;
+}
+
+.search-box input,
+.search-box svg {
+    vertical-align: -webkit-baseline-middle;
+}
+
+
+/* Thuộc tính của button */
+
+.header__container button {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: transparent;
+    border: none;
+}
+
+#signup {
+    background-color: var(--button-color);
+    color: white;
+    width: 85px;
+    margin-right: 3%;
+}
+
+#login {
+    background-color: transparent;
+    border: 0.5px solid white;
+    color: white;
+    width: 70px;
+    margin-right: 3%;
+}
+
+.header__button-container>.btn--s {
+    padding: 0;
+    height: 25px;
+}
+
+@media screen and (max-width: 992px) {
+    .header__container>div:not(:last-child) {
+        display: none;
+    }
+    .header__container {
+        transition: 0.5s;
+    }
+    .header__container,
+    .header__container.responsive {
+        justify-content: space-between;
+    }
+    .header__container .icon {
+        /* float: right; */
+        display: block;
+    }
+    a.icon:hover {
+        text-decoration: none;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .header__container.responsive>div,
+    .header__container {
+        transition: 0.5s;
+    }
+    .header__container.responsive>div:not(:last-child) {
+        position: inherit;
+        top: 55px;
+        width: 100%;
+        height: fit-content;
+        width: 100vw;
+        /* transition: 0.5s; */
+        height: fit-content;
+        font-size: 20px;
+        /* padding: 10px 10%; */
+        /* color: black */
+    }
+    .header__container.responsive .navbar__link-container {
+        color: black;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(55, 73, 168, 0.2), rgba(55, 73, 168, 0.2)), rgba(0, 0, 0, 0.76);
+    }
+    .header__container.responsive .navbar__link-container {
+        flex-direction: column;
+        top: 80px !important;
+    }
+    .header__container.responsive .navbar__link-container a {
+        padding: 10px 1%;
+    }
+    .header__container.responsive .search-box {
+        margin: 0;
+        top: 0;
+        height: 25px;
+    }
+    .header__container.responsive>div {
+        display: flex;
+        transition: 0.5s;
+        text-align: left;
+        /* flex-direction: column; */
+    }
+}

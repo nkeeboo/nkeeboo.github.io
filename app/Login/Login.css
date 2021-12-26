@@ -1,0 +1,134 @@
+@font-face {
+    font-family: RobotoRegular;
+    src: url(/assets/fonts/roboto/Roboto-Regular.ttf);
+}
+
+@font-face {
+    font-family: RobotoMedium;
+    src: url(/assets/fonts/roboto/Roboto-Medium.ttf);
+}
+
+@font-face {
+    font-family: RobotoLight;
+    src: url(/assets/fonts/roboto/Roboto-Light.ttf);
+}
+
+@font-face {
+    font-family: MontserratExtraBold;
+    src: url(/assets/fonts/montserrat/Montserrat-ExtraBold.ttf);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.header {
+    height: 70px;
+}
+
+.logo {
+    width: 300px;
+    height: 150px;
+    margin: auto;
+}
+
+.main-body {
+    width: 450px;
+    background-color: #9999992b;
+    margin: auto;
+    border-radius: 15px;
+    height: 600px;
+}
+
+.main-body img {
+    width: 100%;
+}
+
+.login-content {
+    font-size: 18px;
+    color: grey;
+    text-align: center;
+}
+
+.login-method {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.bi {
+    font-size: 3rem;
+    color: black;
+    margin: 20px 40px;
+}
+
+.login-button {
+    display: flex;
+    margin-top: 20px;
+}
+
+.btn-login {
+    margin: auto;
+}
+
+h3 {
+    font-family: MontserratExtraBold;
+}
+
+label {
+    font-family: RobotoRegular;
+    margin-top: 10px;
+}
+
+.btn-forgot {
+    /* background-color: #615d5d; */
+    margin: auto;
+    padding: 10px 5px;
+}
+
+#btnforgot {
+    background-color: #b4afaf;
+    padding: 10px 5px;
+    font-family: MontserratExtraBold;
+}
+
+#btnlogin {
+    padding: 10px 30px;
+    font-family: MontserratExtraBold;
+}
+
+
+/* .line {
+    background-color: grey;
+    border: 0.5px solid grey;
+} */
+
+.form-group label {
+    width: 200px;
+}
+
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    /* margin: auto; */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    cursor: pointer;
+}
+
+#text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    color: white;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
